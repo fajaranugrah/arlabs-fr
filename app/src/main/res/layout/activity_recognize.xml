@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presenter.recognize.RecognizeActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/preview_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.baseproject.util.mlkit.GraphicOverlay
+            android:id="@+id/graphic_overlay"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/preview_view"
+            app:layout_constraintLeft_toLeftOf="@id/preview_view"
+            app:layout_constraintRight_toRightOf="@id/preview_view"
+            app:layout_constraintTop_toTopOf="@id/preview_view" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_recognize_frame" />
+
+        <ImageView
+            android:id="@+id/img_logo_peduli_lingdungi"
+            android:layout_width="130dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/logo_peduli_lindungi_colored"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_powered_by"
+            style="@style/TextView.Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/powered_by"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SmallSp" />
+
+        <ImageView
+            android:id="@+id/img_logo_riset_ai"
+            android:layout_width="63dp"
+            android:layout_height="13dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="3dp"
+            android:src="@drawable/logo_riset_ai_colored"
+            app:layout_constraintEnd_toEndOf="@id/tv_powered_by"
+            app:layout_constraintTop_toBottomOf="@id/tv_powered_by"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_progress_hint"
+            style="@style/TextView.SemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/hint_uploading_your_picture"
+            android:textColor="@android:color/black"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/progress_horizontal"
+            app:layout_constraintEnd_toEndOf="@id/progress_horizontal"
+            app:layout_constraintStart_toStartOf="@id/progress_horizontal"
+            tools:visibility="visible" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progress_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="64dp"
+            android:layout_marginBottom="32dp"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:indeterminateAnimationType="disjoint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:trackCornerRadius="4dp"
+            app:trackThickness="8dp"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

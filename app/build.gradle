@@ -1,0 +1,120 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+apply from: '../deps.gradle'
+
+android {
+    compileSdk config.compileSdkVersion
+
+    defaultConfig {
+        applicationId config.applictionId
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName config.versionName
+
+        buildConfigField("String", "BASE_URL_TENANT", "\"https://riset.luqmanr.xyz/oauth/\"")
+        buildConfigField("String", "BASE_URL_FR", "\"https://riset.luqmanr.xyz/face-api/\"")
+        buildConfigField("String", "BASE_URL_PL", "\"https://pl.luqmanr.xyz/\"")
+        buildConfigField("String", "BASE_FACE_GALLERY_ID", "\"arlabs\"")
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "version"
+
+    productFlavors {
+        production {
+            dimension "version"
+        }
+
+        development {
+            flavorDimensions "version"
+            applicationIdSuffix ".dev"
+        }
+
+        staging {
+            flavorDimensions "version"
+            applicationIdSuffix ".stag"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation files('libs/telpo_temperature_v1.1.0.jar')
+
+    // Support
+    implementation supportDependencies.appcompat
+    implementation supportDependencies.coreKtx
+    implementation supportDependencies.fragmentKtx
+    implementation supportDependencies.material
+    implementation supportDependencies.lifecycleLiveData
+
+    // Dependency Injection
+    implementation injectionDependencies.dagger
+    kapt injectionDependencies.daggerCompiler
+
+    // Room
+    implementation databaseDependencies.roomKtx
+    kapt databaseDependencies.roomCompiler
+
+    // Network
+    implementation networkDependencies.retrofit
+    implementation networkDependencies.retrofitConverterGson
+    implementation networkDependencies.okHttp
+    implementation networkDependencies.okHttpLogginInterceptor
+    debugImplementation networkDependencies.chuckerDebug
+    releaseImplementation networkDependencies.chuckerRelease
+
+    // Libraries
+    implementation libraries.gson
+    implementation libraries.timber
+    implementation libraries.lottie
+    implementation libraries.dexter
+    implementation libraries.easyImage
+    implementation libraries.coil
+    implementation libraries.keyboardVisibilityEvent
+    implementation libraries.compressor
+
+    // MLKit
+    implementation mlKit.faceDetection
+    implementation mlKit.camera
+
+    // CameraX
+    implementation camerax.core
+    implementation camerax.camera2
+    implementation camerax.cameraLifecycle
+    implementation camerax.cameraView
+    implementation camerax.cameraExtensions
+
+    // Unit Test
+    testImplementation testDependencies.junit
+
+    // Instrumentation Test
+    androidTestImplementation testDependencies.androidxJunit
+    androidTestImplementation testDependencies.androidxEspresso
+}

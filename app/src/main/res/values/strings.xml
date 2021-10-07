@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">Face Recognition</string>
+
+    <string name="title_register_user">Register User</string>
+    <string name="title_recognize_user">Recognize User</string>
+    <string name="title_your_photo">Your Photo</string>
+    <string name="title_nik">NIK</string>
+    <string name="title_username">Username</string>
+    <string name="title_similarity">Similarity</string>
+    <string name="title_number_visitors">Jumlah Pengunjung</string>
+    <string name="title_status">Status</string>
+    <string name="title_user_data">User Data</string>
+    <string name="title_temporary_na">Temporary N/A</string>
+    <string name="title_tenant_login">Tenant Login</string>
+    <string name="title_full_name">Nama Lengkap</string>
+    <string name="title_id_number">Nomor Induk Kependudukan</string>
+    <string name="title_check_in_location">Lokasi Check-In</string>
+    <string name="title_check_out_location">Lokasi Check-Out</string>
+    <string name="title_check_in_date">Tanggal Check-In</string>
+    <string name="title_check_out_date">Tanggal Check-Out</string>
+    <string name="title_body_temperature">Suhu Badan</string>
+    <string name="title_location_capacity">Kapasitas Lokasi</string>
+
+    <string name="action_register_user">Register User</string>
+    <string name="action_recognize_user">Recognize User</string>
+    <string name="action_register">Register</string>
+    <string name="action_login">Login</string>
+    <string name="action_checkin">Checkin</string>
+    <string name="action_checkout">Checkout</string>
+
+    <string name="hint_front_face_view">Front face view</string>
+    <string name="hint_input_nik">Input NIK</string>
+    <string name="hint_input_username">Input Username</string>
+    <string name="hint_client_id">Client ID</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_uploading_your_picture">Uploading your picture…</string>
+
+    <string name="message_camera_access_required">Camera access required</string>
+    <string name="message_storage_access_required">Storage access required</string>
+    <string name="message_user_registered_successfully">User registered successfully</string>
+    <string name="message_failed_to_process_photo">Failed to process photo. Please try again</string>
+    <string name="message_face_not_found">Face not found. Please try again</string>
+    <string name="message_user_not_registered">User not registered</string>
+    <string name="message_checkin_success">Check-In Berhasil</string>
+    <string name="message_checkout_success">Check-Out Berhasil</string>
+    <string name="message_checkin_rejected">Check-In Rejected</string>
+
+    <string name="error_your_photo_required">Your photo is required</string>
+    <string name="error_nik_required">NIK is required</string>
+    <string name="error_username_required">Username is required</string>
+    <string name="error_client_id_required">Client ID is required</string>
+    <string name="error_password_required">Password is required</string>
+
+    <string name="powered_by">Powered by</string>
+    <string name="supported_by">Supported by</string>
+
+
+    <!-- Strings for face detector landmark mode preference. -->
+    <string name="pref_title_face_detector_landmark_mode" translatable="false">Landmark mode</string>
+    <string name="pref_key_live_preview_face_detection_landmark_mode" translatable="false">lpfdlm</string>
+    <string name="pref_entries_face_detector_landmark_mode_no_landmarks" translatable="false">No landmarks</string>
+    <string name="pref_entries_face_detector_landmark_mode_all_landmarks" translatable="false">All landmarks</string>
+
+    <!-- Strings for face detector contour mode preference. -->
+    <string name="pref_title_face_detector_contour_mode" translatable="false">Contour mode</string>
+    <string name="pref_key_live_preview_face_detection_contour_mode" translatable="false">lpfdcm</string>
+    <string name="pref_entries_face_detector_contour_mode_no_contours" translatable="false">No contours</string>
+    <string name="pref_entries_face_detector_contour_mode_all_contours" translatable="false">All contours</string>
+
+    <!-- Strings for face detector classification mode preference. -->
+    <string name="pref_title_face_detector_classification_mode" translatable="false">Classification mode</string>
+    <string name="pref_key_live_preview_face_detection_classification_mode" translatable="false">lpfdcfm</string>
+    <string name="pref_entries_face_detector_classification_mode_no_classifications" translatable="false">No classifications</string>
+    <string name="pref_entries_face_detector_classification_mode_all_classifications" translatable="false">All classifications</string>
+
+    <!-- Strings for face detector min face size preference. -->
+    <string name="pref_key_live_preview_face_detection_min_face_size" translatable="false">lpfdmfs</string>
+
+    <!-- Strings for face detector performance mode preference. -->
+    <string name="pref_title_face_detector_performance_mode" translatable="false">Performance mode</string>
+    <string name="pref_key_live_preview_face_detection_performance_mode" translatable="false">lpfdpm</string>
+    <string name="pref_entries_face_detector_performance_mode_fast" translatable="false">Fast</string>
+    <string name="pref_entries_face_detector_performance_mode_accurate" translatable="false">Accurate</string>
+
+    <!-- Strings for face detector min face size preference. -->
+    <string name="pref_toast_invalid_min_face_size" translatable="false">Minimum face size must be a float value and in the range [0.0, 1.0]</string>
+</resources>

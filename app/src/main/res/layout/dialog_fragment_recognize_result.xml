@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_sheet_recognize_result"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    tools:background="@drawable/bg_result_green">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_logo_peduli_lingdungi"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/logo_peduli_lindungi_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_powered_by"
+            style="@style/TextView.Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/powered_by"
+            android:textColor="@android:color/white"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SmallSp" />
+
+        <ImageView
+            android:id="@+id/img_logo_riset_ai"
+            android:layout_width="wrap_content"
+            android:layout_height="13dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="3dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/logo_riset_ai_white"
+            app:layout_constraintEnd_toEndOf="@id/tv_powered_by"
+            app:layout_constraintTop_toBottomOf="@id/tv_powered_by"
+            tools:ignore="ContentDescription" />
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="380dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="456dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg_data_container"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/img_check"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/ic_check_green" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Check-In Berhasil"
+                    tools:textColor="@color/colorGreen" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorDivider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="36dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="24dp"
+                    tools:ignore="DisableBaselineAlignment">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.25"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextView.Hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/title_full_name" />
+
+                        <TextView
+                            android:id="@+id/tv_full_name"
+                            style="@style/TextView.Value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            tools:text="Winonna Sarah" />
+
+                        <TextView
+                            style="@style/TextView.Hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/title_id_number" />
+
+                        <TextView
+                            android:id="@+id/tv_nik"
+                            style="@style/TextView.Value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            tools:text="32750305382*****" />
+
+                        <TextView
+                            android:id="@+id/tv_hint_check_location"
+                            style="@style/TextView.Hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/title_check_in_location" />
+
+                        <TextView
+                            android:id="@+id/tv_check_in_location"
+                            style="@style/TextView.Value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            tools:text="Kampus Yarsi" />
+
+                        <TextView
+                            android:id="@+id/tv_hint_check_date"
+                            style="@style/TextView.Hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/title_check_in_date" />
+
+
+                        <TextView
+                            android:id="@+id/tv_check_date"
+                            style="@style/TextView.Value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            tools:text="20 Sept 2021" />
+
+                        <TextView
+                            android:id="@+id/tv_check_time"
+                            style="@style/TextView.Value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            tools:text="10:03 WIB" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            style="@style/TextView.Hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/title_body_temperature" />
+
+                        <TextView
+                            android:id="@+id/tv_temperature"
+                            style="@style/TextView.Value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="-"
+                            android:textSize="30sp"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            style="@style/TextView.Hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/title_location_capacity" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_crowd"
+                                style="@style/TextView.Value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/inter_black"
+                                android:maxLines="1"
+                                android:textColor="@color/colorSecondaryText"
+                                android:textSize="26sp"
+                                tools:text="129" />
+
+                            <TextView
+                                android:id="@+id/tv_capacity"
+                                style="@style/TextView.Value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:textSize="20sp"
+                                tools:text="/1000" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="48dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_supported_by"
+            style="@style/TextView.Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:text="@string/supported_by"
+            android:textColor="@android:color/white"
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_supported_by">
+
+            <ImageView
+                android:id="@+id/img_logo_digital_buana"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/logo_digital_buana_white"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/img_logo_sentuh"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/logo_sentuh_colored"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
