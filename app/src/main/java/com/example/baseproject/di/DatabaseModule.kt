@@ -3,6 +3,7 @@ package com.example.baseproject.di
 import android.content.Context
 import androidx.room.Room
 import com.example.baseproject.data.source.local.room.AppDatabase
+import com.example.baseproject.data.source.local.room.dao.FaceGalleryIdDao
 import com.example.baseproject.data.source.local.room.dao.TenantDao
 import dagger.Module
 import dagger.Provides
@@ -21,4 +22,7 @@ class DatabaseModule {
 
     @Provides
     fun provideTenantDao(database: AppDatabase): TenantDao = database.tenantDao()
+
+    @Provides
+    fun provideFaceGalleryIdDao(database: AppDatabase): FaceGalleryIdDao = database.faceGalleryId()
 }

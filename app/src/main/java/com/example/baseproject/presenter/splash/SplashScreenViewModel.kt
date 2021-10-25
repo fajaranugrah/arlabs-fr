@@ -4,9 +4,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.baseproject.data.Resource
+import com.example.baseproject.domain.model.CheckIn
+import com.example.baseproject.domain.model.FaceGalleryId
 import com.example.baseproject.domain.model.Tenant
 import com.example.baseproject.domain.usecase.AppUseCase
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,6 +19,9 @@ class SplashScreenViewModel @Inject constructor(private val useCase: AppUseCase)
 
     private val _isTenantLoggedIn = MutableLiveData<Boolean>()
     val isTenantLoggedIn = Transformations.map(_isTenantLoggedIn) { it }
+
+    private val _faceGalleryIdLiveData = MutableLiveData<Any>()
+    val faceGalleryIdLiveData = Transformations.map(_faceGalleryIdLiveData) { it }
 
     fun checkTenantHasLoggedIn() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -26,6 +33,14 @@ class SplashScreenViewModel @Inject constructor(private val useCase: AppUseCase)
     fun saveLoggedTenant(tenant: Tenant) {
         viewModelScope.launch(Dispatchers.IO) {
             useCase.saveLoggedTenant(tenant).firstOrNull()
+        }
+    }
+
+    fun createFaceGalleryId() {
+        viewModelScope.launch(Dispatchers.IO) {
+            useCase.registerFaceGalleryId().collectLatest {
+                _faceGalleryIdLiveData.postValue(it)
+            }
         }
     }
 }

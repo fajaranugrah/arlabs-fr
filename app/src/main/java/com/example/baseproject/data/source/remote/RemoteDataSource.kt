@@ -4,10 +4,7 @@ import com.example.baseproject.data.source.remote.network.ApiResponse
 import com.example.baseproject.data.source.remote.network.FRApiService
 import com.example.baseproject.data.source.remote.network.PLApiService
 import com.example.baseproject.data.source.remote.network.TenantApiService
-import com.example.baseproject.data.source.remote.request.EnrollFaceRequest
-import com.example.baseproject.data.source.remote.request.IdentifyCheckinCheckoutRequest
-import com.example.baseproject.data.source.remote.request.RecognizeFaceRequest
-import com.example.baseproject.data.source.remote.request.VerifyCheckinCheckoutRequest
+import com.example.baseproject.data.source.remote.request.*
 import com.example.baseproject.data.source.remote.response.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -54,6 +51,28 @@ class RemoteDataSource @Inject constructor(
                 val response = frApiService.enrollFace(
                     accessToken = accessToken,
                     request = request
+                )
+
+                if (response.status == "200") {
+                    emit(ApiResponse.Success(response))
+                } else {
+                    emit(ApiResponse.Error(response.statusMessage.toString()))
+                }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun registerFaceGalleryId(
+        accessToken: String?,
+        request: CreateFaceGalleryId,
+    ): Flow<ApiResponse<CreateFaceGalleryResponse>> {
+        return flow {
+            try {
+                val response = frApiService.createFaceGallery(
+                    accessToken = accessToken,
+                    request = request,
                 )
 
                 if (response.status == "200") {

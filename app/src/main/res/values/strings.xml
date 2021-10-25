@@ -84,4 +84,6 @@
 
     <!-- Strings for face detector min face size preference. -->
     <string name="pref_toast_invalid_min_face_size" translatable="false">Minimum face size must be a float value and in the range [0.0, 1.0]</string>
+    
+    <string name="riset_ai_and_digital_buana"><b>RISET.AI</b> and <b>DIGITAL BUANA</b></string>
 </resources>

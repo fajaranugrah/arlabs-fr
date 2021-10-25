@@ -3,12 +3,15 @@ package com.example.baseproject.data.source.local.room
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.example.baseproject.data.source.local.room.dao.FaceGalleryIdDao
 import com.example.baseproject.data.source.local.room.dao.TenantDao
+import com.example.baseproject.data.source.local.room.entity.FaceGalleryIdEntity
 import com.example.baseproject.data.source.local.room.entity.TenantEntity
 
 @Database(
     entities = [
         TenantEntity::class,
+        FaceGalleryIdEntity::class,
     ],
     version = 1,
     exportSchema = false,
@@ -21,4 +24,6 @@ abstract class AppDatabase : RoomDatabase() {
     }
 
     abstract fun tenantDao(): TenantDao
+
+    abstract fun faceGalleryId(): FaceGalleryIdDao
 }

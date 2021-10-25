@@ -1,13 +1,7 @@
 package com.example.baseproject.data.source.remote.network
 
-import com.example.baseproject.data.source.remote.request.EnrollFaceRequest
-import com.example.baseproject.data.source.remote.request.IdentifyCheckinCheckoutRequest
-import com.example.baseproject.data.source.remote.request.RecognizeFaceRequest
-import com.example.baseproject.data.source.remote.request.VerifyCheckinCheckoutRequest
-import com.example.baseproject.data.source.remote.response.EnrollFaceResponse
-import com.example.baseproject.data.source.remote.response.IdentifyCheckinCheckoutResponse
-import com.example.baseproject.data.source.remote.response.RecognizeFaceResponse
-import com.example.baseproject.data.source.remote.response.VerifyCheckinCheckoutResponse
+import com.example.baseproject.data.source.remote.request.*
+import com.example.baseproject.data.source.remote.response.*
 import retrofit2.http.Body
 import retrofit2.http.Header
 import retrofit2.http.POST
@@ -19,6 +13,12 @@ interface FRApiService {
         @Header("Accesstoken") accessToken: String?,
         @Body request: EnrollFaceRequest?,
     ): EnrollFaceResponse
+
+    @POST("facegallery/create-facegallery")
+    suspend fun createFaceGallery(
+        @Header("Accesstoken") accessToken: String?,
+        @Body request: CreateFaceGalleryId?,
+    ): CreateFaceGalleryResponse
 
     @POST("facegallery/recognize-face")
     suspend fun recognizeFace(

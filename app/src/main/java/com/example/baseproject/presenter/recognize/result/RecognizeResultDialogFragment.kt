@@ -68,12 +68,13 @@ class RecognizeResultDialogFragment : DialogFragment() {
 
     @SuppressLint("SetTextI18n")
     private fun showCheckInData() {
-        binding.tvPoweredBy.setTextColorRes(android.R.color.white)
+        //binding.tvPoweredBy.setTextColorRes(android.R.color.white)
         binding.tvSupportedBy.setTextColorRes(android.R.color.white)
+        binding.tvRisetAiAndDigitalBuana.setTextColorRes(android.R.color.white)
         binding.imgLogoPeduliLingdungi.load(AppEnvironment.Logo.PEDULI_LINDUNGI_WHITE) {
             placeholder(R.drawable.logo_peduli_lindungi_white)
         }
-        binding.imgLogoRisetAi.load(AppEnvironment.Logo.RISET_AI_WHITE) {
+        /*binding.imgLogoRisetAi.load(AppEnvironment.Logo.RISET_AI_WHITE) {
             placeholder(R.drawable.logo_riset_ai_white)
         }
         binding.imgLogoDigitalBuana.load(AppEnvironment.Logo.DIGITAL_BUANA_WHITE) {
@@ -81,6 +82,12 @@ class RecognizeResultDialogFragment : DialogFragment() {
         }
         binding.imgLogoSentuh.load(AppEnvironment.Logo.SENTUH_WHITE) {
             placeholder(R.drawable.logo_sentuh_colored)
+        }*/
+        binding.imgLogoAsriLiving.load(AppEnvironment.Logo.ASRI_LIVING) {
+            placeholder(R.drawable.logo_asri_living)
+        }
+        binding.imgLogoAgungSedayuGroup.load(AppEnvironment.Logo.AGUNG_SEDAYU) {
+            placeholder(R.drawable.logo_agung_sedayu_group)
         }
 
         binding.tvHintCheckLocation.text = getString(R.string.title_check_in_location)
@@ -106,12 +113,13 @@ class RecognizeResultDialogFragment : DialogFragment() {
 
     @SuppressLint("SetTextI18n")
     private fun showCheckoutData() {
-        binding.tvPoweredBy.setTextColorRes(R.color.colorPrimaryText)
+        //binding.tvPoweredBy.setTextColorRes(R.color.colorPrimaryText)
         binding.tvSupportedBy.setTextColorRes(R.color.colorPrimaryText)
+        binding.tvRisetAiAndDigitalBuana.setTextColorRes(R.color.colorPrimaryText)
         binding.imgLogoPeduliLingdungi.load(AppEnvironment.Logo.PEDULI_LINDUNGI_COLORED) {
             placeholder(R.drawable.logo_peduli_lindungi_colored)
         }
-        binding.imgLogoRisetAi.load(AppEnvironment.Logo.RISET_AI_COLORED) {
+        /*binding.imgLogoRisetAi.load(AppEnvironment.Logo.RISET_AI_COLORED) {
             placeholder(R.drawable.logo_riset_ai_colored)
         }
         binding.imgLogoDigitalBuana.load(AppEnvironment.Logo.DIGITAL_BUANA_COLORED) {
@@ -119,6 +127,12 @@ class RecognizeResultDialogFragment : DialogFragment() {
         }
         binding.imgLogoSentuh.load(AppEnvironment.Logo.SENTUH_COLORED) {
             placeholder(R.drawable.logo_sentuh_colored)
+        }*/
+        binding.imgLogoAsriLiving.load(AppEnvironment.Logo.ASRI_LIVING) {
+            placeholder(R.drawable.logo_asri_living)
+        }
+        binding.imgLogoAgungSedayuGroup.load(AppEnvironment.Logo.AGUNG_SEDAYU) {
+            placeholder(R.drawable.logo_agung_sedayu_group)
         }
 
         binding.tvHintCheckLocation.text = getString(R.string.title_check_out_location)

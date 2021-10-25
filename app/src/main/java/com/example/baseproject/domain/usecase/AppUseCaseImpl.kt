@@ -1,5 +1,6 @@
 package com.example.baseproject.domain.usecase
 
+import com.example.baseproject.domain.model.FaceGalleryId
 import com.example.baseproject.domain.model.Tenant
 import com.example.baseproject.domain.model.User
 import com.example.baseproject.domain.repository.AppRepository
@@ -29,4 +30,6 @@ class AppUseCaseImpl @Inject constructor(private val repository: AppRepository) 
     override fun identifyCheckIn(user: User) = repository.identifyCheckIn(user)
 
     override fun identifyCheckOut(user: User) = repository.identifyCheckOut(user)
+
+    override fun registerFaceGalleryId() = repository.registerFaceGalleryId()
 }

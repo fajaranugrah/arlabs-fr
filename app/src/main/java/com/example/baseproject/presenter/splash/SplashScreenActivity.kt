@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.baseproject.domain.model.FaceGalleryId
 import com.example.baseproject.domain.model.Tenant
 import com.example.baseproject.presenter.MainApplication
 import com.example.baseproject.presenter.login.TenantLoginActivity
@@ -48,6 +49,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private fun initData() {
         viewModel.checkTenantHasLoggedIn()
+        viewModel.createFaceGalleryId()
     }
 
     private fun openLoginTenantPage() {

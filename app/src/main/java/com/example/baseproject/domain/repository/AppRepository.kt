@@ -1,10 +1,7 @@
 package com.example.baseproject.domain.repository
 
 import com.example.baseproject.data.Resource
-import com.example.baseproject.domain.model.CheckIn
-import com.example.baseproject.domain.model.CheckOut
-import com.example.baseproject.domain.model.Tenant
-import com.example.baseproject.domain.model.User
+import com.example.baseproject.domain.model.*
 import kotlinx.coroutines.flow.Flow
 
 interface AppRepository {
@@ -27,4 +24,6 @@ interface AppRepository {
     fun identifyCheckIn(user: User): Flow<Resource<CheckIn>>
 
     fun identifyCheckOut(user: User): Flow<Resource<CheckOut>>
+
+    fun registerFaceGalleryId(): Flow<Any>
 }

@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
 
-        <TextView
+        <!--<TextView
             android:id="@+id/tv_powered_by"
             style="@style/TextView.Value"
             android:layout_width="wrap_content"
@@ -49,6 +49,18 @@
             android:src="@drawable/logo_riset_ai_white"
             app:layout_constraintEnd_toEndOf="@id/tv_powered_by"
             app:layout_constraintTop_toBottomOf="@id/tv_powered_by"
+            tools:ignore="ContentDescription" />-->
+
+        <ImageView
+            android:id="@+id/img_logo_asri_living"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/logo_asri_living"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
 
 
@@ -64,7 +76,7 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="456dp"
+                android:layout_height="510dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/bg_data_container"
                 tools:ignore="ContentDescription" />
@@ -270,6 +282,23 @@
 
                 </LinearLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/colorDivider" />
+
+                <ImageView
+                    android:id="@+id/img_logo_agung_sedayu_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/logo_agung_sedayu_group"
+                    tools:ignore="ContentDescription" />
+
             </LinearLayout>
 
         </FrameLayout>
@@ -280,8 +309,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:gravity="center"
         android:layout_marginBottom="48dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/tv_supported_by"
@@ -289,12 +319,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom"
-            android:text="@string/supported_by"
+            android:text="@string/powered_by"
             android:textColor="@android:color/white"
             android:textSize="8sp"
             tools:ignore="SmallSp" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_riset_ai_and_digital_buana"
+            style="@style/TextView.Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginStart="3dp"
+            android:text="@string/riset_ai_and_digital_buana"
+            android:textColor="@android:color/white"
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
+
+        <!--<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -322,7 +364,7 @@
                 android:src="@drawable/logo_sentuh_colored"
                 tools:ignore="ContentDescription" />
 
-        </LinearLayout>
+        </LinearLayout>-->
 
     </LinearLayout>
 

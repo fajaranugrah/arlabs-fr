@@ -94,7 +94,8 @@ class RecognizeActivity : AppCompatActivity() {
 
     private fun initView() {
         binding.imgLogoPeduliLingdungi.load(AppEnvironment.Logo.PEDULI_LINDUNGI_COLORED)
-        binding.imgLogoRisetAi.load(AppEnvironment.Logo.RISET_AI_COLORED)
+        //binding.imgLogoRisetAi.load(AppEnvironment.Logo.RISET_AI_COLORED)
+        binding.imgLogoAsriLiving.load(AppEnvironment.Logo.ASRI_LIVING)
     }
 
     private fun initCameraProvider() {

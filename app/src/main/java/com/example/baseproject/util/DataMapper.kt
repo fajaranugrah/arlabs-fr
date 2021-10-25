@@ -1,11 +1,9 @@
 package com.example.baseproject.util
 
+import com.example.baseproject.data.source.local.room.entity.FaceGalleryIdEntity
 import com.example.baseproject.data.source.local.room.entity.TenantEntity
 import com.example.baseproject.data.source.remote.response.*
-import com.example.baseproject.domain.model.Image
-import com.example.baseproject.domain.model.Place
-import com.example.baseproject.domain.model.Tenant
-import com.example.baseproject.domain.model.User
+import com.example.baseproject.domain.model.*
 
 object DataMapper {
 
@@ -30,6 +28,18 @@ object DataMapper {
         return Tenant(
             id = tenantId,
             accessToken = input.accessToken,
+        )
+    }
+
+    fun mapFaceGalleryIdResponseToFaceGalleryIdEntity(input: CreateFaceGalleryResponse?): FaceGalleryIdEntity {
+        return FaceGalleryIdEntity(
+            facegalleryId = input!!.facegalleryId,
+        )
+    }
+
+    fun mapFaceGalleryIdResponseToFaceGalleryId(input: CreateFaceGalleryResponse?): FaceGalleryId {
+        return FaceGalleryId(
+            facegalleryId = input?.facegalleryId,
         )
     }
 
