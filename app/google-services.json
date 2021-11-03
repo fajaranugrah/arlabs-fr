@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "437719009112",
+    "project_id": "facerecognition-1563c",
+    "storage_bucket": "facerecognition-1563c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437719009112:android:cfd38db2865fec0360872d",
+        "android_client_info": {
+          "package_name": "com.example.baseproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437719009112-ahifmntd5p3kp0q6dm76ciac3s8enpnt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.baseproject",
+            "certificate_hash": "7c104f882ed09e4243c4d13d4dc19b29936fc47a"
+          }
+        },
+        {
+          "client_id": "437719009112-l7uviu6fq8j5vv7r09kpjmft9e3u9ln9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBdvdbh1Q8na2a66UZWNf4n3XJegY4xc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437719009112-l7uviu6fq8j5vv7r09kpjmft9e3u9ln9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

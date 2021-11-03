@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 apply from: '../deps.gradle'
@@ -41,7 +43,7 @@ android {
 
         development {
             flavorDimensions "version"
-            applicationIdSuffix ".dev"
+            //applicationIdSuffix ".dev"
         }
 
         staging {
@@ -117,4 +119,10 @@ dependencies {
     // Instrumentation Test
     androidTestImplementation testDependencies.androidxJunit
     androidTestImplementation testDependencies.androidxEspresso
+
+    // Firebase
+    implementation platform(firebaseDependencies.boom)
+    implementation firebaseDependencies.analytics
+    implementation firebaseDependencies.crashlytics
+    implementation firebaseDependencies.messaging
 }

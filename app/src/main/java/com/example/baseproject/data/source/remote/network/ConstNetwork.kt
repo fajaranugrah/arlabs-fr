@@ -21,6 +21,9 @@ object ConstNetwork {
 //    const val FACE_GALLERY_ID = "${BuildConfig.BASE_FACE_GALLERY_ID}@${BuildConfig.FLAVOR}"
     //const val FACE_GALLERY_ID = "si_db@loket"
 
-    const val FACE_GALLERY_ID = "astha.id@production"
-    const val TRX_ID = "astha1234"
+    /*const val FACE_GALLERY_ID = "astha.id@production"
+    const val TRX_ID = "astha1234"*/
+
+    const val FACE_GALLERY_ID = "mandalik@dev"
+    const val TRX_ID = "mandalik1234"
 }

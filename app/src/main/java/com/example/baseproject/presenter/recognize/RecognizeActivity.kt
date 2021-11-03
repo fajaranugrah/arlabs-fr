@@ -95,7 +95,8 @@ class RecognizeActivity : AppCompatActivity() {
     private fun initView() {
         binding.imgLogoPeduliLingdungi.load(AppEnvironment.Logo.PEDULI_LINDUNGI_COLORED)
         //binding.imgLogoRisetAi.load(AppEnvironment.Logo.RISET_AI_COLORED)
-        binding.imgLogoAsriLiving.load(AppEnvironment.Logo.ASRI_LIVING)
+        //binding.imgLogoAsriLiving.load(AppEnvironment.Logo.ASRI_LIVING)
+        binding.imgLogoXplorin.load(AppEnvironment.Logo.XPLORIN_COLORED)
     }
 
     private fun initCameraProvider() {
@@ -190,7 +191,7 @@ class RecognizeActivity : AppCompatActivity() {
     }
 
     private fun recognizePhoto(imageFile: File) {
-        val exif = ExifInterface(imageFile.inputStream())
+        /*val exif = ExifInterface(imageFile.inputStream())
         val orientation: Int = exif.getAttributeInt(
             ExifInterface.TAG_ORIENTATION,
             ExifInterface.ORIENTATION_NORMAL
@@ -203,7 +204,7 @@ class RecognizeActivity : AppCompatActivity() {
             ExifInterface.ORIENTATION_ROTATE_270 -> rotateImage(bitmap, 270f)
             ExifInterface.ORIENTATION_NORMAL -> bitmap
             else -> bitmap
-        }
+        }*/
 
         lifecycleScope.launch {
             try {
@@ -213,6 +214,21 @@ class RecognizeActivity : AppCompatActivity() {
                     Compressor.compress(this@RecognizeActivity, imageFile) {
                         size(maxFileSize = 1500 * 1024) // 1.5MB
                     }
+                /*var compressedImageFile  =
+                    Compressor.compress(this@RecognizeActivity, imageFile) {
+                        size(maxFileSize = 1500 * 1024) // 1.5MB
+                    }
+                try {
+                    compressedImageFile =
+                        Compressor.compress(this@RecognizeActivity, imageFile) {
+                            size(maxFileSize = 1500 * 1024) // 1.5MB
+                        }
+                } catch (size: Exception) {
+                    compressedImageFile =
+                        Compressor.compress(this@RecognizeActivity, imageFile) {
+                            size(maxFileSize = 1000 * 1024) // 1MB
+                        }
+                }*/
 
                 val user = User(
                     image = Image(
@@ -232,6 +248,10 @@ class RecognizeActivity : AppCompatActivity() {
                 showProgress(false)
                 Timber.e(e)
                 showToast("Gagal mendapatkan gambar")
+            } catch (e: Exception) {
+                showProgress(false)
+                Timber.e(e)
+                showToast(e.message)
             }
         }
     }

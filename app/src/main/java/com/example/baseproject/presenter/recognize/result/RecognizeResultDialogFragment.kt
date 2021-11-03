@@ -83,20 +83,33 @@ class RecognizeResultDialogFragment : DialogFragment() {
         binding.imgLogoSentuh.load(AppEnvironment.Logo.SENTUH_WHITE) {
             placeholder(R.drawable.logo_sentuh_colored)
         }*/
-        binding.imgLogoAsriLiving.load(AppEnvironment.Logo.ASRI_LIVING) {
+        /*binding.imgLogoAsriLiving.load(AppEnvironment.Logo.ASRI_LIVING) {
             placeholder(R.drawable.logo_asri_living)
         }
         binding.imgLogoAgungSedayuGroup.load(AppEnvironment.Logo.AGUNG_SEDAYU) {
             placeholder(R.drawable.logo_agung_sedayu_group)
+        }*/
+        binding.imgLogoXplorin.load(AppEnvironment.Logo.XPLORIN_WHITE) {
+            placeholder(R.drawable.logo_xplorin_white)
+        }
+        binding.imgLogoSbkmotul.load(AppEnvironment.Logo.SBKMOTUL) {
+            placeholder(R.drawable.logo_sbkmotul)
+        }
+        binding.imgLogoItdc.load(AppEnvironment.Logo.ITDC_WHITE) {
+            placeholder(R.drawable.logo_itdc)
         }
 
         binding.tvHintCheckLocation.text = getString(R.string.title_check_in_location)
         binding.tvHintCheckDate.text = getString(R.string.title_check_in_date)
 
+        binding.tvColorArea.text = "Red Area"
+        binding.tvNameArea.text = "(Premier Grand Stand)"
+
         arguments?.getParcelable<CheckIn>(ARG_CHECKIN)?.let {
             binding.tvFullName.text = it.user?.name
             binding.tvNik.text = "${it.user?.id?.take(11)}*****"
-            binding.tvCheckInLocation.text = it.place?.name
+            //binding.tvCheckInLocation.text = it.place?.name
+            binding.tvCheckInLocation.text = "Mandalika - Sircuit"
             binding.tvCheckDate.text = it.date
             binding.tvCheckTime.text = it.time
             binding.tvCrowd.text = it.place?.crowd.toString()
@@ -105,10 +118,14 @@ class RecognizeResultDialogFragment : DialogFragment() {
             showStatusData(it.user?.status)
         }
 
+        /*Handler().postDelayed({
+            onDismiss?.invoke()
+            dismiss()
+        }, 3000)*/
         Handler().postDelayed({
             onDismiss?.invoke()
             dismiss()
-        }, 3000)
+        }, 7000)
     }
 
     @SuppressLint("SetTextI18n")
@@ -128,11 +145,20 @@ class RecognizeResultDialogFragment : DialogFragment() {
         binding.imgLogoSentuh.load(AppEnvironment.Logo.SENTUH_COLORED) {
             placeholder(R.drawable.logo_sentuh_colored)
         }*/
-        binding.imgLogoAsriLiving.load(AppEnvironment.Logo.ASRI_LIVING) {
+        /*binding.imgLogoAsriLiving.load(AppEnvironment.Logo.ASRI_LIVING) {
             placeholder(R.drawable.logo_asri_living)
         }
         binding.imgLogoAgungSedayuGroup.load(AppEnvironment.Logo.AGUNG_SEDAYU) {
             placeholder(R.drawable.logo_agung_sedayu_group)
+        }*/
+        binding.imgLogoXplorin.load(AppEnvironment.Logo.XPLORIN_COLORED) {
+            placeholder(R.drawable.logo_xplorin_white)
+        }
+        binding.imgLogoSbkmotul.load(AppEnvironment.Logo.SBKMOTUL) {
+            placeholder(R.drawable.logo_sbkmotul)
+        }
+        binding.imgLogoItdc.load(AppEnvironment.Logo.ITDC_COLORED) {
+            placeholder(R.drawable.logo_itdc_color)
         }
 
         binding.tvHintCheckLocation.text = getString(R.string.title_check_out_location)
@@ -141,7 +167,8 @@ class RecognizeResultDialogFragment : DialogFragment() {
         arguments?.getParcelable<CheckOut>(ARG_CHECKOUT)?.let {
             binding.tvFullName.text = it.user?.name
             binding.tvNik.text = "${it.user?.id?.take(11)}*****"
-            binding.tvCheckInLocation.text = it.place?.name
+            //binding.tvCheckInLocation.text = it.place?.name
+            binding.tvCheckInLocation.text = "Mandalika - Sircuit"
             binding.tvCheckDate.text = it.date
             binding.tvCheckTime.text = it.time
             binding.tvCrowd.text = it.place?.crowd.toString()
@@ -155,10 +182,14 @@ class RecognizeResultDialogFragment : DialogFragment() {
             }
         }
 
+        /*Handler().postDelayed({
+            onDismiss?.invoke()
+            dismiss()
+        }, 3000)*/
         Handler().postDelayed({
             onDismiss?.invoke()
             dismiss()
-        }, 3000)
+        }, 7000)
     }
 
     private fun showStatusData(status: String?) {

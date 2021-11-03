@@ -20,6 +20,7 @@
     <string name="title_check_out_date">Tanggal Check-Out</string>
     <string name="title_body_temperature">Suhu Badan</string>
     <string name="title_location_capacity">Kapasitas Lokasi</string>
+    <string name="title_area">Area</string>
 
     <string name="action_register_user">Register User</string>
     <string name="action_recognize_user">Recognize User</string>
