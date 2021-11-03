@@ -23,4 +23,6 @@ interface AppUseCase {
     fun identifyCheckOut(user: User): Flow<Resource<CheckOut>>
 
     fun registerFaceGalleryId(): Flow<Any>
+
+    fun scanLogs(id: String?, date: String?): Flow<Any>
 }

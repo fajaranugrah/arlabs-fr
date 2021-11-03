@@ -21,6 +21,11 @@ class RegisterViewModel @Inject constructor(private val useCase: AppUseCase) : V
     private val _userPhotoFileLiveData = MutableLiveData<File?>()
     val userPhotoFileLiveData = Transformations.map(_userPhotoFileLiveData) { it }
 
+    private val _scanLogs = MutableLiveData<Any>()
+    val scanLogs = Transformations.map(_scanLogs) { it }
+
+    var user: User? = null
+
    fun registerUser(user: User) {
        viewModelScope.launch(Dispatchers.IO) {
            useCase.registerUser(user).collectLatest {
@@ -32,6 +37,14 @@ class RegisterViewModel @Inject constructor(private val useCase: AppUseCase) : V
     fun setUserPhotoFile(file: File?) {
         viewModelScope.launch(Dispatchers.IO) {
             _userPhotoFileLiveData.postValue(file)
+        }
+    }
+
+    fun scanLogs(id: String?, date: String?) {
+        viewModelScope.launch(Dispatchers.IO) {
+            useCase.scanLogs(id, date).collectLatest {
+                _scanLogs.postValue(it)
+            }
         }
     }
 }

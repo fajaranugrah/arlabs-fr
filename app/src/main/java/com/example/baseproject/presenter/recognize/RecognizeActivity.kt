@@ -95,8 +95,8 @@ class RecognizeActivity : AppCompatActivity() {
     private fun initView() {
         binding.imgLogoPeduliLingdungi.load(AppEnvironment.Logo.PEDULI_LINDUNGI_COLORED)
         //binding.imgLogoRisetAi.load(AppEnvironment.Logo.RISET_AI_COLORED)
-        //binding.imgLogoAsriLiving.load(AppEnvironment.Logo.ASRI_LIVING)
-        binding.imgLogoXplorin.load(AppEnvironment.Logo.XPLORIN_COLORED)
+        binding.imgLogoAsriLiving.load(AppEnvironment.Logo.ASRI_LIVING)
+        //binding.imgLogoXplorin.load(AppEnvironment.Logo.XPLORIN_COLORED)
     }
 
     private fun initCameraProvider() {
@@ -125,6 +125,9 @@ class RecognizeActivity : AppCompatActivity() {
                 is Resource.Success -> {
                     showProgress(false)
                     it.data?.let { data ->
+                        //scan Logs Loket
+                        viewModel.scanLogs(data.user?.name, data.date)
+
                         showRecognizeResultDialog(
                             type = AppEnvironment.VerifyTypes.CHECKIN,
                             checkIn = data,
@@ -151,6 +154,9 @@ class RecognizeActivity : AppCompatActivity() {
                 is Resource.Success -> {
                     showProgress(false)
                     it.data?.let { data ->
+                        //scan Logs Loket
+                        viewModel.scanLogs(data.user?.name, data.date)
+
                         showRecognizeResultDialog(
                             type = AppEnvironment.VerifyTypes.CHECKOUT,
                             checkOut = data,
@@ -214,21 +220,6 @@ class RecognizeActivity : AppCompatActivity() {
                     Compressor.compress(this@RecognizeActivity, imageFile) {
                         size(maxFileSize = 1500 * 1024) // 1.5MB
                     }
-                /*var compressedImageFile  =
-                    Compressor.compress(this@RecognizeActivity, imageFile) {
-                        size(maxFileSize = 1500 * 1024) // 1.5MB
-                    }
-                try {
-                    compressedImageFile =
-                        Compressor.compress(this@RecognizeActivity, imageFile) {
-                            size(maxFileSize = 1500 * 1024) // 1.5MB
-                        }
-                } catch (size: Exception) {
-                    compressedImageFile =
-                        Compressor.compress(this@RecognizeActivity, imageFile) {
-                            size(maxFileSize = 1000 * 1024) // 1MB
-                        }
-                }*/
 
                 val user = User(
                     image = Image(

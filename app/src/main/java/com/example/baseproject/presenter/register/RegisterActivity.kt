@@ -25,6 +25,8 @@ import com.karumi.dexter.listener.single.PermissionListener
 import net.yslibrary.android.keyboardvisibilityevent.util.UIUtil
 import pl.aprilapps.easyphotopicker.*
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 class RegisterActivity : AppCompatActivity(), PermissionListener {
@@ -133,6 +135,7 @@ class RegisterActivity : AppCompatActivity(), PermissionListener {
                     progressDialog.show(supportFragmentManager)
                 }
                 is Resource.Success -> {
+                    sendScanLogs()
                     progressDialog.hide()
                     showToast(getString(R.string.message_user_registered_successfully))
                     onBackPressed()
@@ -191,6 +194,7 @@ class RegisterActivity : AppCompatActivity(), PermissionListener {
         }
 
         viewModel.registerUser(user)
+        viewModel.user = user
     }
 
     private fun showImagePickerWithPermission() {
@@ -221,5 +225,16 @@ class RegisterActivity : AppCompatActivity(), PermissionListener {
             }
             binding.layoutHintOwner.visible()
         }
+    }
+
+    private fun sendScanLogs() {
+        try {
+            //scan Logs Loket
+            val date: Date = Calendar.getInstance().getTime()
+
+            val df = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val dateNow: String = df.format(date)
+            viewModel.scanLogs(viewModel.user?.name, dateNow)
+        } catch (e: Exception) { e.printStackTrace() }
     }
 }

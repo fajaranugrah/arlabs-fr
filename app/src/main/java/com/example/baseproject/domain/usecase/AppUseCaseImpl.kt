@@ -32,4 +32,6 @@ class AppUseCaseImpl @Inject constructor(private val repository: AppRepository) 
     override fun identifyCheckOut(user: User) = repository.identifyCheckOut(user)
 
     override fun registerFaceGalleryId() = repository.registerFaceGalleryId()
+
+    override fun scanLogs(id: String?, date: String?) = repository.scanLogs(id, date)
 }

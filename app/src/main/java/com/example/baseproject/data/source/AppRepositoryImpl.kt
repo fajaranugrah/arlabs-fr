@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import java.io.ByteArrayOutputStream
+import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -305,6 +306,29 @@ class AppRepositoryImpl @Inject constructor(
                     }
                     is ApiResponse.Error -> {
                         Resource.Error(it.errorMessage)
+                    }
+                }
+            })
+        }
+    }
+
+    override fun scanLogs(id: String?, date: String?): Flow<Any> {
+        val df = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val dateNow: String = df.format(Calendar.getInstance().getTime())
+
+        val request = ScanLogsRequest(
+            id = id,
+            date = dateNow,
+        )
+
+        return flow {
+            emitAll(remoteDataSource.scanLogs(
+                authorization = "token 6e8ee8e53a4bb41:09b281d613d6755",
+                request = request,
+            ).map {
+                when (it) {
+                    is ApiResponse.Success -> {
+                        //nothing to do
                     }
                 }
             })

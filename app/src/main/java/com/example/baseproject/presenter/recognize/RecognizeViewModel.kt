@@ -26,6 +26,9 @@ class RecognizeViewModel @Inject constructor(private val useCase: AppUseCase) : 
     private val _identifyCheckOutLiveData = MutableLiveData<Resource<CheckOut>>()
     val identifyCheckOutLiveData = Transformations.map(_identifyCheckOutLiveData) { it }
 
+    private val _scanLogs = MutableLiveData<Any>()
+    val scanLogs = Transformations.map(_scanLogs) { it }
+
     var isOnProgress = false
 
     fun setThermal(temperature: String, isUnusual: Boolean) {
@@ -47,6 +50,14 @@ class RecognizeViewModel @Inject constructor(private val useCase: AppUseCase) : 
         viewModelScope.launch(Dispatchers.IO) {
             useCase.identifyCheckOut(user).collectLatest {
                 _identifyCheckOutLiveData.postValue(it)
+            }
+        }
+    }
+
+    fun scanLogs(id: String?, date: String?) {
+        viewModelScope.launch(Dispatchers.IO) {
+            useCase.scanLogs(id, date).collectLatest {
+                _scanLogs.postValue(it)
             }
         }
     }

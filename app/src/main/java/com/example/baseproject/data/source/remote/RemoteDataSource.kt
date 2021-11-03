@@ -1,9 +1,6 @@
 package com.example.baseproject.data.source.remote
 
-import com.example.baseproject.data.source.remote.network.ApiResponse
-import com.example.baseproject.data.source.remote.network.FRApiService
-import com.example.baseproject.data.source.remote.network.PLApiService
-import com.example.baseproject.data.source.remote.network.TenantApiService
+import com.example.baseproject.data.source.remote.network.*
 import com.example.baseproject.data.source.remote.request.*
 import com.example.baseproject.data.source.remote.response.*
 import kotlinx.coroutines.Dispatchers
@@ -18,6 +15,7 @@ class RemoteDataSource @Inject constructor(
     private val tenantApiService: TenantApiService,
     private val frApiService: FRApiService,
     private val plApiService: PLApiService,
+    private val scanLogsApiService: ScanLogsApiService,
 ) {
 
     suspend fun loginTenant(
@@ -149,6 +147,28 @@ class RemoteDataSource @Inject constructor(
                     } else {
                         emit(ApiResponse.Error(response.statusMessage.toString()))
                     }
+                }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun scanLogs(
+        authorization: String?,
+        request: ScanLogsRequest,
+    ): Flow<ApiResponse<ScanLogsResponse>> {
+        return flow {
+            try {
+                val response = scanLogsApiService.scanLogs(
+                    authorization = authorization,
+                    request = request,
+                )
+
+                if (response.status == "200") {
+                    emit(ApiResponse.Success(response))
+                } else {
+                    emit(ApiResponse.Error(response.statusMessage.toString()))
                 }
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))

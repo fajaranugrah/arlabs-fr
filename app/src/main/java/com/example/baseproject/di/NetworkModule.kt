@@ -5,6 +5,7 @@ import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.baseproject.BuildConfig
 import com.example.baseproject.data.source.remote.network.FRApiService
 import com.example.baseproject.data.source.remote.network.PLApiService
+import com.example.baseproject.data.source.remote.network.ScanLogsApiService
 import com.example.baseproject.data.source.remote.network.TenantApiService
 import dagger.Module
 import dagger.Provides
@@ -73,5 +74,15 @@ class NetworkModule {
             .client(client)
             .build()
         return retrofit.create(PLApiService::class.java)
+    }
+
+    @Provides
+    fun provideLoketApiService(client: OkHttpClient): ScanLogsApiService {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://139.162.21.55/api/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+        return retrofit.create(ScanLogsApiService::class.java)
     }
 }

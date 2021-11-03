@@ -51,7 +51,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_powered_by"
             tools:ignore="ContentDescription" />-->
 
-        <!--<ImageView
+        <ImageView
             android:id="@+id/img_logo_asri_living"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -61,9 +61,9 @@
             android:src="@drawable/logo_asri_living"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />-->
+            tools:ignore="ContentDescription" />
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/img_logo_xplorin"
             android:layout_width="wrap_content"
             android:layout_height="31dp"
@@ -73,7 +73,7 @@
             android:src="@drawable/logo_xplorin_white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription" />-->
 
 
         <FrameLayout
@@ -89,7 +89,7 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="520dp"
+                android:layout_height="515dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/bg_data_container"
                 tools:ignore="ContentDescription" />
@@ -291,16 +291,16 @@
 
                         </LinearLayout>
 
-                        <TextView
+                        <!--<TextView
                             style="@style/TextView.Hint"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="14dp"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@string/title_area" />
+                            android:text="@string/title_area" />-->
 
-                        <LinearLayout
+                        <!--<LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
@@ -324,7 +324,7 @@
                                 android:maxLines="2"
                                 tools:text="(Premier Grand Stand)" />
 
-                        </LinearLayout>
+                        </LinearLayout>-->
 
                     </LinearLayout>
 
@@ -337,7 +337,7 @@
                     android:layout_marginTop="3dp"
                     android:background="@color/colorDivider" />
 
-                <!--<ImageView
+                <ImageView
                     android:id="@+id/img_logo_agung_sedayu_group"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
@@ -345,9 +345,9 @@
                     android:layout_marginTop="15dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/logo_agung_sedayu_group"
-                    tools:ignore="ContentDescription" />-->
+                    tools:ignore="ContentDescription" />
 
-                <ImageView
+                <!--<ImageView
                     android:id="@+id/img_logo_sbkmotul"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
@@ -355,7 +355,7 @@
                     android:layout_marginTop="15dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/logo_sbkmotul"
-                    tools:ignore="ContentDescription" />
+                    tools:ignore="ContentDescription" />-->
 
             </LinearLayout>
 
@@ -369,7 +369,7 @@
             app:layout_constraintTop_toBottomOf="@+id/fl_info_check"
             app:layout_constraintBottom_toBottomOf="parent">
 
-            <ImageView
+            <!--<ImageView
                 android:id="@+id/img_logo_itdc"
                 android:layout_width="wrap_content"
                 android:layout_height="31dp"
@@ -378,7 +378,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription" />-->
 
             <LinearLayout
                 android:id="@+id/ll_supported_by"
@@ -390,7 +390,6 @@
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_logo_itdc"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:orientation="horizontal">
 
